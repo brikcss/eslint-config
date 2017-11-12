@@ -8,7 +8,15 @@
  */
 
 
+/**
+ * Set up environment.
+ */
 const isProd = process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production';
+
+/**
+ * Configuration exports.
+ * @type  {object}
+ */
 module.exports = {
 	root: true,
 	parser: 'babel-eslint',
@@ -26,4 +34,4 @@ module.exports = {
 		// allow debugger during development
 		'no-debugger': isProd ? 2 : 0
 	}
-}
+};
