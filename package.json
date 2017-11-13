@@ -62,8 +62,8 @@
 		"js:lint": "./node_modules/.bin/eslint *.js --format=stylish",
 		"// [SASS]": "// Build SASS bundle(s).",
 		"sass:build": "node ./lib/tasks/sass-compile.js",
-		"sass:watch": "chokidar src/*.scss -c 'npm run sass:build -- --file={path} && echo \"[ok] Sass lint complete.\"' --verbose",
-		"sass:lint": "postcss src/*.scss --replace --no-map",
+		"sass:watch": "chokidar src/*.scss -c 'stylelint {path} && npm run sass:build -- --file={path} && echo \"[ok] Sass lint complete.\"' --verbose",
+		"sass:lint": "stylelint src/*.scss",
 		"sass:dist": "ln -sf ../src/sass/ ./dist/sass",
 		"// [GIT|HUSKY]": "// Helpers for interacting with git and husky (githooks).",
 		"commit": "echo \"See the \"git commit policy\" in CONTRIBUTING.md for details on how to write a valid commit message.\n\" && git-cz",
@@ -95,6 +95,7 @@
 	},
 	"devDependencies": {
 		"@brikcss/eslint-config-brikcss": "0.1.0",
+		"@brikcss/stylelint-config-brikcss-sass": "0.0.2",
 		"@commitlint/cli": "^4.2.2",
 		"@commitlint/prompt": "^4.2.2",
 		"autoprefixer": "^7.1.4",
