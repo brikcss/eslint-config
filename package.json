@@ -1,16 +1,16 @@
 {
-	"name": "@brikcss/eslint-config-brikcss",
+	"name": "@brikcss/eslint-config",
 	"version": "0.0.0-development",
 	"description": "ESLint shareable configuration by brikcss.",
 	"author": "The Zimmee <thezimmee@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/brikcss/eslint-config-brikcss",
+	"homepage": "https://github.com/brikcss/eslint-config",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/brikcss/eslint-config-brikcss.git"
+		"url": "https://github.com/brikcss/eslint-config.git"
 	},
 	"bugs": {
-		"url": "https://github.com/brikcss/eslint-config-brikcss/issues"
+		"url": "https://github.com/brikcss/eslint-config/issues"
 	},
 	"keywords": [
 		"brikcss",
