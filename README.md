@@ -25,10 +25,22 @@
 - [ ] Create a new repo in GitHub for the new component.
 - [ ] Configure remote tracking as follows:
 	```bash
-	# Set this component repo as upstream to be able to stay in sync.
+	# IMPORTANT: Set new master branch as upstream (not remote).
+	# Otherwise commits will go to the component scaffold repo.
+	# Setting as upstream also allows you to stay in sync with component scaffold repo.
 	git remote rename origin upstream
+
+	# Create a new local master branch based on upstream/master.
+	git branch -m master master-upstream # Rename local upstream/master first.
+	git checkout -b master master-upstream # Create new local master.
+	git branch -d master-upstream # Delete local master-upstream.
+
 	# Add the new GitHub repo as the remote origin.
 	git remote add origin <github repo url>
+
+	# Run this the first time you push changes.
+	# This will set up origin/master to track local master and push.
+	git push -u origin master
 	```
 - [ ] When you run `git remote -v`, the `origin` should track the new GitHub repo and the `upstream` should track this component scaffold repo.
 - [ ] In the future, to stay in sync with this component `upstream` repo:
@@ -50,7 +62,6 @@
 	- [ ] `description`.
 	- [ ] `keywords`.
 	- [ ] `main` and `module` with the correct entry files.
-	- [ ] `release` and `publishConfig` with the correct branch/dist-tags.
 	- [ ] `files` with all files necessary for a release.
 	- [ ] `scripts`:
 		- [ ] `prod:clean` paths (and possibly add `mkdirp` to recreate `dist` dirs?).
@@ -70,11 +81,25 @@
 ## Set up the automated release
 
 - [ ] Install NPM packages with `npm install`.
-- [ ] Set up [`semantic-release`](https://github.com/semantic-release/semantic-release) by running `semantic-release-cli setup`.
-- [ ] [semantic-release](https://github.com/semantic-release/semantic-release) creates the first release at version `1.0.0`. If you want to start on a different version (such as `0.0.1`), you must do the following:
-	- [ ] Update the `version` in `package.json` to `0.0.1` (or the version you wish to start at).
-	- [ ] Publish your first release manually with `npm publish --tag=<tag> --access=public`.
-	- [ ] Update `version` in `package.json` back to `0.0.0-development`.
+- [ ] _(Optional)_: [semantic-release](https://github.com/semantic-release/semantic-release) creates the first release at version `1.0.0`. If you want to start at a different version (such as `0.0.1`), do the following:
+	- [ ] Change the `version` field in `package.json` to `0.0.1` (or the version you wish to start at).
+	- [ ] Publish your first release manually:
+		```bash
+		npm publish --tag=dev --access=public
+		```
+	- [ ] Change `version` in `package.json` back to `0.0.0-development`.
+	- [ ] Delete all git tags (which come from the upstream / scaffold component repo).
+		```bash
+		git tag | xargs git tag -d
+		```
+	- [ ] Create a git tag for `0.0.1` (or whatever version you started at) and push it (this is so semantic-release is able to recognize where you're at):
+		```bash
+		# Create the tag.
+		git tag v<version> <commit hash>
+		# Push it to remote origin.
+		git push --tags origin master
+		```
+- [ ] Set up [`semantic-release`](https://github.com/semantic-release/semantic-release) by running `semantic-release-cli setup`. _**Important**: Make sure to not overwrite the `.travis.yml` file we already have._
 - [ ] After it is published, create a `dev` channel / dist-tag:
 	```bash
 	npm dist-tag add @brikcss/<component>@<version> dev -d
