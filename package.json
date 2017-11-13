@@ -1,7 +1,7 @@
 {
 	"name": "@brikcss/eslint-config-brikcss",
 	"version": "0.0.0-development",
-	"description": "ESLint shareable configuration by brikcss (https://github.com/brikcss/).",
+	"description": "ESLint shareable configuration by brikcss.",
 	"author": "The Zimmee <thezimmee@gmail.com>",
 	"license": "MIT",
 	"homepage": "https://github.com/brikcss/eslint-config-brikcss",
@@ -44,7 +44,7 @@
 		"test": "cross-env NODE_ENV=production concurrently --kill-others-on-fail --names=js:lint \"npm run js:lint\" || npm run test:fail",
 		"posttest": "echo \"\n[ok] Tests complete.\n\"",
 		"test:fail": "echo \"\n[FAIL] Tests failed.\n\" && exit 1",
-		"// [JS]": "// Build JS bundles / flavors with webpack.",
+		"// [JS]": "// Lint JS files.",
 		"js:lint": "./node_modules/.bin/eslint ./index.js --format=stylish",
 		"// [GIT|HUSKY]": "// Helpers for interacting with git and husky (githooks).",
 		"commit": "echo \"See the \"git commit policy\" in CONTRIBUTING.md for details on how to write a valid commit message.\n\" && git-cz",
