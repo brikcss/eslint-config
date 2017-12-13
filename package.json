@@ -25,10 +25,7 @@
 		"module"
 	],
 	"main": "index.js",
-	"files": [
-		"index.js",
-		".eslintrc.js"
-	],
+	"files": ["index.js", ".eslintrc.js"],
 	"config": {
 		"commitizen": {
 			"path": "@commitlint/prompt"
@@ -37,17 +34,21 @@
 	"scripts": {
 		"// [START]": "Run `npm start` as an alias for development.",
 		"start": "npm run watch",
-		"// [WATCH]": "For local development. Watches files, rebuilds when source files change, runs local server with live reload.",
-		"watch": "chokidar ./index.js --command './node_modules/.bin/eslint {path} --format=stylish && echo \"[ok] JS lint complete.\"'",
+		"// [WATCH]":
+			"For local development. Watches files, rebuilds when source files change, runs local server with live reload.",
+		"watch":
+			"chokidar ./index.js --command './node_modules/.bin/eslint {path} --format=stylish && echo \"[ok] JS lint complete.\"'",
 		"// [TESTS]": "UI and unit tests, as well as code quality checkers.",
 		"pretest": "echo \"Running tests...\n\"",
-		"test": "cross-env NODE_ENV=production concurrently --kill-others-on-fail --names=js:lint \"npm run js:lint\" || npm run test:fail",
+		"test":
+			"cross-env NODE_ENV=production concurrently --kill-others-on-fail --names=js:lint \"npm run js:lint\" || npm run test:fail",
 		"posttest": "echo \"\n[ok] Tests complete.\n\"",
 		"test:fail": "echo \"\n[FAIL] Tests failed.\n\" && exit 1",
 		"// [JS]": "// Lint JS files.",
 		"js:lint": "./node_modules/.bin/eslint ./index.js --format=stylish",
 		"// [GIT|HUSKY]": "// Helpers for interacting with git and husky (githooks).",
-		"commit": "echo \"See the \"git commit policy\" in CONTRIBUTING.md for details on how to write a valid commit message.\n\" && git-cz",
+		"commit":
+			"echo \"See the \"git commit policy\" in CONTRIBUTING.md for details on how to write a valid commit message.\n\" && git-cz",
 		"commitmsg": "commitlint -e $GIT_PARAMS",
 		"preparecommitmsg": "lib/hooks/prepare-commit-msg.sh ${GIT_PARAMS}",
 		"// prepush:": "Runs the production build and checks for a clean state (excluding untracked files).",
@@ -63,18 +64,14 @@
 			"preset": "angular",
 			"releaseRules": "./.release-rules.js",
 			"parserOpts": {
-				"noteKeywords": [
-					"BREAKING CHANGE",
-					"BREAKING CHANGES",
-					"BREAKING"
-				]
+				"noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
 			}
 		}
 	},
 	"publishConfig": {
 		"tag": "dev"
 	},
-	"peerDependencies": {
+	"dependencies": {
 		"eslint": "^4.9.0"
 	},
 	"devDependencies": {

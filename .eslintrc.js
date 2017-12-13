@@ -7,7 +7,6 @@
  * ---------------------------------------------------------------------
  */
 
-
 /**
  * Set up environment.
  */
@@ -19,7 +18,6 @@ const isProd = process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'prod
  */
 module.exports = {
 	root: true,
-	parser: 'babel-eslint',
 	parserOptions: {
 		sourceType: 'module'
 	},
@@ -30,7 +28,7 @@ module.exports = {
 		es6: true
 	},
 	// add your custom rules here
-	'rules': {
+	rules: {
 		// allow debugger during development
 		'no-debugger': isProd ? 2 : 0
 	}
