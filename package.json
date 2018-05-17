@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/eslint-config",
-	"version": "0.0.0-development",
+	"version": "0.1.4",
 	"description": "ESLint shareable configuration by brikcss.",
 	"author": "The Zimmee <thezimmee@gmail.com>",
 	"license": "MIT",
