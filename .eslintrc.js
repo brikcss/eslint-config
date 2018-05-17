@@ -30,6 +30,11 @@ module.exports = {
 	// add your custom rules here
 	rules: {
 		// allow debugger during development
-		'no-debugger': isProd ? 2 : 0
+		'no-debugger': isProd ? 2 : 0,
+
+		// --------------------------
+		// Things prettier handles...
+		//
+		'no-mixed-spaces-and-tabs': 0
 	}
 };
