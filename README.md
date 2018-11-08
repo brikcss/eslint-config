@@ -1,5 +1,7 @@
 # Brikcss ESLint Configuration
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brikcss/eslint-config.svg)](https://greenkeeper.io/)
+
 > [ESLint](https://eslint.org/) shareable configuration by [brikcss](https://github.com/brikcss/).
 
 <!-- Shields. -->
